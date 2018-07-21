@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/home_logo"
+            android:src="@drawable/applogowhite"/>
+        <TextView
+            android:id="@+id/personName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+           android:layout_below="@+id/home_logo"
+            android:layout_centerInParent="true"
+            android:layout_margin="10dp"
+            android:textSize="20sp"
+            android:text="Welcome , Tanmay"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <Button
+        android:id="@+id/addCaseBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Case"
+        android:textColor="@color/colorPrimary"
+        android:layout_margin="10dp"
+        android:background="@drawable/spinnerbackground"
+        />
+    <Button
+        android:id="@+id/viewSubmittedCaseBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Submitted Cases"
+        android:textColor="@color/colorPrimary"
+        android:layout_margin="10dp"
+        android:background="@drawable/spinnerbackground"
+        />
+    <Button
+        android:id="@+id/viewCaseStatusBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Case Status"
+        android:textColor="@color/colorPrimary"
+        android:layout_margin="10dp"
+        android:background="@drawable/spinnerbackground"
+        />
+    <Button
+        android:id="@+id/contactBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contact"
+        android:textColor="@color/colorPrimary"
+        android:layout_margin="10dp"
+        android:background="@drawable/spinnerbackground"
+        />
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textColor="@color/colorPrimary"
+            android:layout_margin="10dp"
+            android:background="@drawable/spinnerbackground"
+            />
+
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>
