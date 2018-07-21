@@ -148,7 +148,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
                     finish();
                 }else {
-                    Toast.makeText(getApplicationContext(),"Enter Valid Username & Password",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Enter  Username & Password",Toast.LENGTH_LONG).show();
                 }
                 Log.e(TAG,""+response.body().getMessage());
 
