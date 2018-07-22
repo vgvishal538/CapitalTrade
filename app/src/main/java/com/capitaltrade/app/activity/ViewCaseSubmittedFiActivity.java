@@ -11,7 +11,6 @@ import android.util.Log;
 import com.capitaltrade.app.R;
 import com.capitaltrade.app.Utils.SharedPrefUtils;
 import com.capitaltrade.app.adapter.SubmittedCaseAdapter;
-import com.capitaltrade.app.adapter.ViewCaseStatusAdapter;
 import com.capitaltrade.app.network.responseModel.loginResponse.submittedCasesResponse.ListDatum;
 import com.capitaltrade.app.network.responseModel.loginResponse.submittedCasesResponse.submittedCaseResponse;
 import com.capitaltrade.app.network.retrofit.ApiInterface;
@@ -28,11 +27,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ViewCaseStatusActivity extends AppCompatActivity {
-    @BindView(R.id.caseStatusRV)
-    RecyclerView caseStatusRV;
+public class ViewCaseSubmittedFiActivity extends AppCompatActivity {
+    @BindView(R.id.submittedCaseRV)
+    RecyclerView submittedCaseRV;
     ApiInterface apiService;
-    private ViewCaseStatusAdapter viewCaseStatusAdapter;
+    private SubmittedCaseAdapter submittedCaseAdapter;
     private ProgressDialog progress;
     private List<ListDatum> listData = new ArrayList<>();
     public RequestBody mobile;
@@ -40,18 +39,18 @@ public class ViewCaseStatusActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_case_status);
+        setContentView(R.layout.activity_view_case_status_fi);
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         progress=new ProgressDialog(this);
         progress.setMessage("Loading...");
         progress.setCancelable(false);
-        final LinearLayoutManager mLayoutManager = new LinearLayoutManager(ViewCaseStatusActivity.this);
-        caseStatusRV.setLayoutManager(mLayoutManager);
+        final LinearLayoutManager mLayoutManager = new LinearLayoutManager(ViewCaseSubmittedFiActivity.this);
+        submittedCaseRV.setLayoutManager(mLayoutManager);
         // retrofit api init.
         apiService = RetrofitUtil.getClient().create(ApiInterface.class);
-        mobile =  RequestBody.create(MediaType.parse("text/plain"), SharedPrefUtils.getmobile(ViewCaseStatusActivity.this));
+        mobile =  RequestBody.create(MediaType.parse("text/plain"), SharedPrefUtils.getmobile(ViewCaseSubmittedFiActivity.this));
         getSubmittedCases();
     }
     private void getSubmittedCases() {
@@ -67,9 +66,9 @@ public class ViewCaseStatusActivity extends AppCompatActivity {
                     }catch (Throwable throwable){
                         throwable.printStackTrace();
                     }
-                    viewCaseStatusAdapter = new ViewCaseStatusAdapter(getApplicationContext(),listData);
-                    caseStatusRV.setAdapter(viewCaseStatusAdapter);
-                    viewCaseStatusAdapter.notifyDataSetChanged();
+                    submittedCaseAdapter = new SubmittedCaseAdapter(getApplicationContext(),listData);
+                    submittedCaseRV.setAdapter(submittedCaseAdapter);
+                    submittedCaseAdapter.notifyDataSetChanged();
                 }
 
 

@@ -3,6 +3,7 @@ package com.capitaltrade.app.network.retrofit;
 import com.capitaltrade.app.network.responseModel.loginResponse.dealerResponse.DealerResponse;
 import com.capitaltrade.app.network.responseModel.loginResponse.fiResponse.FiResponse;
 import com.capitaltrade.app.network.responseModel.loginResponse.preFormUploadResponse.AddCaseResponse;
+import com.capitaltrade.app.network.responseModel.loginResponse.submittedCasesResponse.submittedCaseResponse;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -58,4 +59,10 @@ public interface ApiInterface {
              @Part("garantor_bill_no") RequestBody garantor_bill_no,
              @Part("dealer_id") RequestBody dealer_id,
              @Part("e_riq_manuf") RequestBody e_riq_manuf);
+
+     @POST("pre_customer_list_for_fi")
+     @Multipart
+     Call<submittedCaseResponse> getSubmittedCases(@Part("phone") RequestBody phone);
+
+
 }

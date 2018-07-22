@@ -28,6 +28,11 @@ public class FiDashboardActivity extends AppCompatActivity {
         finame.setText("Welcome , "+SharedPrefUtils.getPersonName(FiDashboardActivity.this));
     }
 
+    @OnClick(R.id.viewSubmittedCaseFi)
+    public void ViewSubmittedCaseFi(){
+        startActivity(new Intent(getApplicationContext(),ViewCaseSubmittedFiActivity.class));
+    }
+
     @OnClick(R.id.fiLogout)
     public void Logout(){
         SharedPrefUtils.clearUserData(FiDashboardActivity.this);

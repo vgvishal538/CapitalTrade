@@ -99,13 +99,14 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             public void onResponse(@NonNull Call<FiResponse>call, @NonNull Response<FiResponse> response) {
                 progress.dismiss();
                 if (response.body().getSuccess().equals(1)){
+                    String id = response.body().getFIData().get(0).getId();
                     String reg_no = response.body().getFIData().get(0).getRegNo();
                     String joining_date = response.body().getFIData().get(0).getJoiningDate();
                     String f_name = response.body().getFIData().get(0).getFName();
                     String l_name = response.body().getFIData().get(0).getLName();
                     String mobile = response.body().getFIData().get(0).getMobile();
                     String loginType = "0";
-                    SharedPrefUtils.saveFiLoginDate(getApplicationContext(),reg_no,
+                    SharedPrefUtils.saveFiLoginDate(getApplicationContext(),id,reg_no,
                             joining_date,f_name,l_name,mobile,loginType);
                     startActivity(new Intent(getApplicationContext(),FiDashboardActivity.class));
                     finish();
@@ -134,6 +135,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             public void onResponse( Call<DealerResponse> call,  Response<DealerResponse> response) {
                 progress.dismiss();
                 if (response.body().getSuccess().equals(1)){
+                    String dealer_id = response.body().getDealerData().get(0).getId();
                     String reg_no = response.body().getDealerData().get(0).getRegNo();
                     String joining_date = response.body().getDealerData().get(0).getJoiningDate();
                     String f_name = response.body().getDealerData().get(0).getFName();
@@ -142,7 +144,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     String email = response.body().getDealerData().get(0).getEmail();
                     String dealer_name = response.body().getDealerData().get(0).getDealerName();
                     String loginType = "1";
-                    SharedPrefUtils.saveDealerLoginData(getApplicationContext(),reg_no,
+                    SharedPrefUtils.saveDealerLoginData(getApplicationContext(),dealer_id,reg_no,
                             joining_date,f_name,l_name,mobile,email,dealer_name,loginType);
 
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));

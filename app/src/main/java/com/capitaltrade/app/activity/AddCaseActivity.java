@@ -172,6 +172,8 @@ public class AddCaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_case);
         ButterKnife.bind(this);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
         builder = new StrictMode.VmPolicy.Builder();
         progress=new ProgressDialog(this);
         progress.setMessage("Loading...");
@@ -194,8 +196,6 @@ public class AddCaseActivity extends AppCompatActivity {
             aplicantAddressBox.setError("This Can't Be Empty");
         }else if (aplicantContactNoBox.getText().toString().isEmpty()){
             aplicantContactNoBox.setError("This Can't Be Empty");
-        }else if(aplicantContactBox.getText().toString().isEmpty()){
-            aplicantContactBox.setError("This Can't Be Empty");
         }else if (aplicantdobBox.getText().toString().isEmpty()){
             aplicantdobBox.setError("This Can't Be Empty");
         }else {
@@ -255,7 +255,7 @@ public class AddCaseActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_LONG).show();
                     finish();
                 }else {
-                    Toast.makeText(getApplicationContext(),"Something Went Wrong, Please Try Again.. ",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_LONG).show();
                 }
                 Log.e("AddCaseRes",response.body().getMessage());
 
@@ -464,8 +464,14 @@ public class AddCaseActivity extends AppCompatActivity {
                         REQUEST_CAMERA);
             }
         }
+
+
     }
 
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
 }

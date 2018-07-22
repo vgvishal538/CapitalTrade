@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 public class SharedPrefUtils {
 
     private static final String CAPITALTRADE_PREFERENCES = "CapitalTradePrefs";
+    public static final String DEALER_ID = "id";
     public static final String DEALER_reg_no = "reg_no";
     public static final String DEALER_joining_date = "joining_date";
     public static final String DEALER_f_name = "f_name";
@@ -16,13 +17,14 @@ public class SharedPrefUtils {
    public static final String LOGIN_TYPE = "login_type";
 
 
-    public static void saveDealerLoginData(Context context,String reg_no,String joining_date,
+    public static void saveDealerLoginData(Context context,String id,String reg_no,String joining_date,
                                      String f_name,String l_name,String mobile,String email,
                                      String dealer_name,String login_type ){
 
         SharedPreferences sharedPreferences = context.getSharedPreferences(CAPITALTRADE_PREFERENCES,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(DEALER_ID,id);
         editor.putString(DEALER_reg_no,reg_no);
         editor.putString(DEALER_joining_date,joining_date);
         editor.putString(DEALER_f_name,f_name);
@@ -34,11 +36,12 @@ public class SharedPrefUtils {
         editor.apply();
 
     }
-    public static void saveFiLoginDate(Context context,String reg_no,String joining_date,String f_name
+    public static void saveFiLoginDate(Context context,String id,String reg_no,String joining_date,String f_name
     , String l_name,String mobile, String login_type){
         SharedPreferences sharedPreferences = context.getSharedPreferences(CAPITALTRADE_PREFERENCES,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(DEALER_ID,id);
         editor.putString(DEALER_reg_no,reg_no);
         editor.putString(DEALER_joining_date,joining_date);
         editor.putString(DEALER_f_name,f_name);
@@ -59,10 +62,22 @@ public class SharedPrefUtils {
                 Context.MODE_PRIVATE);
         return sharedPreferences.getString(LOGIN_TYPE,"");
     }
+    public static String getId(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences(CAPITALTRADE_PREFERENCES,
+                Context.MODE_PRIVATE);
+        return sharedPreferences.getString(DEALER_ID,"");
+
+    }
     public static String getPersonName(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(CAPITALTRADE_PREFERENCES,
                 Context.MODE_PRIVATE);
         return sharedPreferences.getString(DEALER_f_name,"");
+    }
+
+    public static String getmobile(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(CAPITALTRADE_PREFERENCES,
+                Context.MODE_PRIVATE);
+        return sharedPreferences.getString(DEALER_mobile,"");
     }
 
     public static void clearUserData(Context context) {
