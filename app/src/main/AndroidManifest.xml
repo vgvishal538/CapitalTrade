@@ -24,19 +24,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.FiDashboardActivity" />
+        <activity android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.FiDashboardActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.AddCaseActivity"
-            android:label="Add Case" />
+            android:label="Add Case"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.ViewSubmittedCaseActivity"
-            android:label="Submitted Cases" />
-        <activity android:name=".activity.ViewCaseStatusActivity"
-            android:label="Case Status"/>
+            android:label="Submitted Cases"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.ViewCaseStatusActivity"
+            android:label="Case Status"
+            android:screenOrientation="portrait"/>
         <activity android:name=".activity.ContactActivity" />
-        <activity android:name=".activity.ViewCaseSubmittedFiActivity"
-            android:label="Submitted Case"/>
+        <activity
+            android:name=".activity.ViewCaseSubmittedFiActivity"
+            android:label="Submitted Case"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.FIAddCaseActivity"
+            android:label="New Case"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

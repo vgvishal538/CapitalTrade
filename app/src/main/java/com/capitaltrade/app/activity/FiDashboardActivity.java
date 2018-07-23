@@ -18,6 +18,8 @@ public class FiDashboardActivity extends AppCompatActivity {
     Button fiLogout;
     @BindView(R.id.finame)
     TextView finame;
+    @BindView(R.id.finewCase)
+    Button finewCase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,11 @@ public class FiDashboardActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         ButterKnife.bind(this);
         finame.setText("Welcome , "+SharedPrefUtils.getPersonName(FiDashboardActivity.this));
+    }
+
+    @OnClick(R.id.finewCase)
+    public void FiAddNewCase(){
+        startActivity(new Intent(getApplicationContext(),FIAddCaseActivity.class));
     }
 
     @OnClick(R.id.viewSubmittedCaseFi)
