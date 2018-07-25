@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.capitaltrade.app.R;
+import com.capitaltrade.app.Utils.SharedPrefUtils;
 import com.capitaltrade.app.network.responseModel.loginResponse.preFormUploadResponse.AddCaseResponse;
 import com.capitaltrade.app.network.retrofit.ApiInterface;
 import com.capitaltrade.app.network.retrofit.RetrofitUtil;
@@ -131,6 +132,9 @@ public class FIAddCaseActivity extends AppCompatActivity {
         progress = new ProgressDialog(this);
         progress.setMessage("Loading...");
         progress.setCancelable(false);
+
+        dealer_idBox.setText(SharedPrefUtils.getId(FIAddCaseActivity.this));
+
         // retrofit api init.
         apiService = RetrofitUtil.getClient().create(ApiInterface.class);
     }

@@ -40,7 +40,9 @@
             android:name=".activity.ViewCaseStatusActivity"
             android:label="Case Status"
             android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ContactActivity" />
+        <activity android:name=".activity.ContactActivity"
+            android:label="Contact"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.ViewCaseSubmittedFiActivity"
             android:label="Submitted Case"

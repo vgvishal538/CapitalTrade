@@ -51,6 +51,26 @@ public class SharedPrefUtils {
         editor.apply();
     }
 
+    public static String getDEALER_l_name(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(CAPITALTRADE_PREFERENCES,
+                Context.MODE_PRIVATE);
+        return sharedPreferences.getString(DEALER_l_name,"");
+    }
+    public static String getDEALER_reg_no(Context context){
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences(CAPITALTRADE_PREFERENCES,
+                Context.MODE_PRIVATE);
+        return sharedPreferences.getString(DEALER_reg_no,"");
+    }
+    public static String getDEALER_joining_date(Context context){
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences(CAPITALTRADE_PREFERENCES,
+                Context.MODE_PRIVATE);
+        return sharedPreferences.getString(DEALER_joining_date,"");
+    }
+
+
+
     public static String isLoggedIn(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(CAPITALTRADE_PREFERENCES,
                 Context.MODE_PRIVATE);

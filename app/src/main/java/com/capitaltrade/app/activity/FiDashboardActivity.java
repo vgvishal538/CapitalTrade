@@ -46,4 +46,8 @@ public class FiDashboardActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),LoginActivity.class));
         finish();
     }
+    @OnClick(R.id.Ficontact)
+    public void FiContact(){
+        startActivity(new Intent(getApplicationContext(),ContactActivity.class));
+    }
 }

@@ -3,6 +3,7 @@ package com.capitaltrade.app.network.retrofit;
 import com.capitaltrade.app.network.responseModel.loginResponse.dealerResponse.DealerResponse;
 import com.capitaltrade.app.network.responseModel.loginResponse.fiResponse.FiResponse;
 import com.capitaltrade.app.network.responseModel.loginResponse.preFormUploadResponse.AddCaseResponse;
+import com.capitaltrade.app.network.responseModel.loginResponse.submittedCaseDealerResponse.SubmittedCaseDealerResponse;
 import com.capitaltrade.app.network.responseModel.loginResponse.submittedCasesResponse.submittedCaseResponse;
 
 import okhttp3.MultipartBody;
@@ -63,6 +64,10 @@ public interface ApiInterface {
      @POST("pre_customer_list_for_fi")
      @Multipart
      Call<submittedCaseResponse> getSubmittedCases(@Part("phone") RequestBody phone);
+
+    @POST("pre_customer_list_for_dealer")
+    @Multipart
+    Call<SubmittedCaseDealerResponse> getSubmittedCasesDealer(@Part("id") RequestBody id);
 
      @POST("post_customer_add")
     @Multipart
